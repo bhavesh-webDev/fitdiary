@@ -1,0 +1,459 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <?php include 'header.php'; ?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FITDAIRY - Fitness Tracking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .logo {
+            font-size: 1.5em;
+        }
+
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin-left: 1em;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5em;
+            transition: background-color 0.3s;
+        }
+
+        header nav ul li a:hover {
+            background-color: #575757;
+            border-radius: 5px;
+        }
+
+        .hero {
+            background: url('young-fitness-man-studio.jpg') no-repeat center center/cover;
+            height: 80vh;
+            color: #fff;
+            text-align: center;
+            padding: 5em 1em;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 1em;
+        }
+
+        .hero .btn {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 0.75em 1.5em;
+            margin: 0.5em;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .hero .btn:hover {
+            background-color: #0056b3;
+        }
+
+        main {
+            padding: 2em 1em;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            margin-bottom: 3em;
+        }
+
+        section h2 {
+            font-size: 2em;
+            margin-bottom: 0.5em;
+            text-align: center;
+        }
+
+        section p {
+            font-size: 1.1em;
+            text-align: center;
+            margin-bottom: 1.5em;
+            color: #666;
+        }
+
+        .features,
+        .video-thumbnails,
+        .diet-thumbnails {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 1em;
+        }
+
+        .feature,
+        .video-thumbnail,
+        .diet-thumbnail {
+            width: 22%;
+            background-color: #f1f1f1;
+            padding: 1em;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature:hover,
+        .video-thumbnail:hover,
+        .diet-thumbnail:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature img,
+        .video-thumbnail img,
+        .diet-thumbnail img {
+            max-width: 100%;
+            height: 200px;
+            border-radius: 10px;
+        }
+
+        .testimonial {
+            background-color: #f9f9f9;
+            padding: 1em;
+            margin-bottom: 1em;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .testimonial p {
+            font-size: 1em;
+            color: #333;
+        }
+
+        .cta {
+            text-align: center;
+            padding: 2em 1em;
+            background-color: #007BFF;
+            color: #fff;
+            border-radius: 10px;
+        }
+
+        .cta .btn {
+            background-color: #fff;
+            color: #007BFF;
+            padding: 0.75em 1.5em;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .cta .btn:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 2em;
+            text-align: center;
+        }
+
+        footer .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1em;
+        }
+
+        footer .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        footer .social-media {
+            margin: 1em 0;
+        }
+
+        footer .social-media i {
+            font-size: 1.5em;
+            margin: 0 0.5em;
+            transition: color 0.3s;
+        }
+
+        footer .social-media i:hover {
+            color: #007BFF;
+        }
+
+        footer .newsletter {
+            margin-bottom: 1em;
+        }
+
+        footer .newsletter input {
+            padding: 0.75em;
+            margin-right: 0.5em;
+            border-radius: 5px;
+            border: none;
+        }
+
+        footer .newsletter button {
+            padding: 0.75em 1.5em;
+            border-radius: 5px;
+            border: none;
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        footer .newsletter button:hover {
+            background-color: #0056b3;
+        }
+
+        footer .contact-info p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            header nav ul {
+                flex-direction: column;
+            }
+
+            header nav ul li {
+                margin-left: 0;
+                margin-top: 1em;
+            }
+
+            .features,
+            .video-thumbnails,
+            .diet-thumbnails {
+                flex-direction: column;
+            }
+
+            .feature,
+            .video-thumbnail,
+            .diet-thumbnail {
+                width: 100%;
+            }
+        }
+
+        .dwnbtn{
+            display: block;
+            margin-left: 40px;
+            height: 30px;
+            padding: 15px;
+            cursor: pointer;
+            width: 150px;
+            font-size: 18px;
+            font-weight: 500;
+
+            border: 1px solid #ff004f;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #0e0e0e;
+            
+            transition: background 0.5s;
+        }
+        .dwnbtn:hover{
+            background-color: #ff004f;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <header>
+        <div class="logo">FIT-DAIRY</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#exercise-videos">Exercise Videos</a></li>
+                <li><a href="#track-fitness">Track Fitness</a></li>
+                <li><a href="#diet-plans">Diet Plans</a></li>
+                <li><a href="bmi.html">Calculate BMI</a></li>
+                <li><a href="bmr.html">Calculate BMR</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Signup</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Track Your Fitness Journey with FITDAIRY</h1>
+        <p>Your ultimate companion for a healthier life.</p>
+        <a href="#" class="btn">Get Started</a>
+        <a href="#" class="btn">Learn More</a>
+    </section>
+
+    <main>
+        <section class="track-fitness" id="track-fitness">
+            <h2>Track Your Fitness</h2>
+            <p>Keep a daily log of your activities and track your progress over time.</p>
+            <div class="features">
+                <div class="feature">
+                    <img src="activitylogo.png" alt="Daily Activity Log">
+                    <a href="workout.html">
+                        <h3>Daily Activity Log</h3>
+                    </a>
+                </div>
+                <div class="feature">
+                    <img src="bmi thumb.jpg" alt="Progress Charts">
+                    <a href="bmi.html">
+                        <h3>BMI (check your body type)</h3>
+                    </a>
+                </div>
+                <div class="feature">
+                    <img src="bmrThumb.png" alt="Goal Setting">
+                    <a href="bmr.html"><h3>BMR (check how much calories you should eat)</h3></a>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="exercise-videos" id="exercise-videos">
+            <h2>Exercise Videos</h2>
+            <p>Watch videos and follow along with your favorite workouts.</p>
+            <div class="video-thumbnails">
+                <div class="video-thumbnail">
+                    <img src="yogathumb.jpg" alt="Yoga Video">
+                    <h3> <a href="yogacards.html">Yoga</a></h3>
+
+                </div>
+                <div class="video-thumbnail">
+                    <img src="strengththumb (2).jpg" alt="Strength Training Video">
+                    <h3> <a href="strength.html">Strength Training</a></h3>
+                </div>
+                <div class="video-thumbnail">
+                    <img src="https://via.placeholder.com/300x200" alt="Cardio Video">
+                    <h3> <a href="">Cardio</a></h3>
+                </div>
+                <div class="video-thumbnail">
+                    <img src="homeworkout.png" alt="Pilates Video">
+                    <h3><a href="homeworkout.html">Home workouts </a></h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="diet-plans" id="diet-plans">
+            <h2>Diet Plans</h2>
+            <p>Choose from pre-designed diet plans .</p>
+            <!-- <div class="diet-options">
+                <button>Custom Diet Plans</button>
+                <button>Pre-designed Diet Plans</button>
+            </div> -->
+            <div class="diet-thumbnails">
+                <div class="diet-thumbnail">
+                    <img src="assortment-veggies-green-background.jpg" alt="Diet Plan">
+                    <h3>2000 cal diet plan</h3>
+                    <a href="2000cal.pdf" download class="dwnbtn">Download pdf</a>
+                </div>
+                <div class="diet-thumbnail">
+                    <img src="overhead-view-organic-slices-vegetable-fruits-plate-with-measuring-tape.jpg" alt="Diet Plan">
+                    <h3>2300 cal diet plan</h3>
+                    <a href="2300img snacks.pdf" download class="dwnbtn">Download pdf</a>
+
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- <section class="bmi-bmr">
+            <h2>Calculate BMI/BMR</h2>
+            <form>
+                <label for="height">Height:</label>
+                <input type="text" id="height" name="height">
+                <label for="weight">Weight:</label>
+                <input type="text" id="weight" name="weight">
+                <label for="age">Age:</label>
+                <input type="text" id="age" name="age">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                <label for="activity">Activity Level:</label>
+                <select id="activity" name="activity">
+                    <option value="low">Low</option>
+                    <option value="moderate">Moderate</option>
+                    <option value="high">High</option>
+                </select>
+                <button type="submit">Calculate</button>
+            </form>
+            <div class="result">
+                 BMI/BMR result display
+            </div>
+        </section> -->
+    </main>
+
+    <section class="testimonials">
+        <h2>User Testimonials</h2>
+        <div class="testimonial">
+            <p>"FITDAIRY has transformed my life!" - Pranit</p>
+        </div>
+        <div class="testimonial">
+            <p>"The best fitness app I've ever used." - Migar</p>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Join FITDAIRY Today</h2>
+        <a href="signup.html" class="btn">Sign Up</a>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">About Us</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Help & Support</a>
+        </div>
+        <div class="social-media">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <!-- <form class="newsletter">
+            <label for="email">Subscribe to our newsletter:</label>
+            <input type="email" id="email" name="email">
+            <button type="submit">Subscribe</button>
+        </form> -->
+        <div class="contact-info">
+            <p>Contact Us: fitdiary@example.com</p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator - FITDAIRY</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            padding: 2em;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 1em;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 1.5em;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1em;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.7em;
+            margin-top: 0.5em;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 0.7em;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 1em;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .bmi-list {
+            margin-top: 2em;
+        }
+
+        .bmi-item {
+            background-color: #f8f9fa;
+            margin-bottom: 1em;
+            padding: 1em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>BMI Calculator</h1>
+    <div class="container">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter your name">
+        </div>
+
+        <div class="form-group">
+            <label for="height">Height (cm)</label>
+            <input type="number" id="height" placeholder="Enter your height in cm">
+        </div>
+
+        <div class="form-group">
+            <label for="weight">Weight (kg)</label>
+            <input type="number" id="weight" placeholder="Enter your weight in kg">
+        </div>
+
+        <button class="btn" onclick="calculateBMI()">Calculate BMI</button>
+
+        <div class="result" id="result"></div>
+        <div class="bmi-list" id="bmiList"></div>
+    </div>
+
+    <script>
+        window.onload = fetchBMIRecords;
+
+        function fetchBMIRecords() {
+            fetch('bmi.php')
+                .then(response => response.json())
+                .then(data => displayBMIRecords(data))
+                .catch(error => console.error('Error fetching BMI records:', error));
+        }
+
+        function calculateBMI() {
+            const name = document.getElementById('name').value;
+            const height = parseFloat(document.getElementById('height').value) / 100;
+            const weight = parseFloat(document.getElementById('weight').value);
+
+            if (!name || !height || !weight) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            const bmi = (weight / (height * height)).toFixed(2);
+            const category = getBMICategory(bmi);
+
+            document.getElementById('result').textContent = 
+                `Your BMI is ${bmi} (${category})`;
+
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('height', (height * 100).toFixed(2));
+            formData.append('weight', weight);
+            formData.append('bmi', bmi);
+
+            fetch('bmi.php', { method: 'POST', body: formData })
+                .then(() => fetchBMIRecords())
+                .catch(error => console.error('Error storing BMI record:', error));
+        }
+
+        function getBMICategory(bmi) {
+            if (bmi < 16) return 'Severe Thinness';
+            if (bmi >= 16 && bmi < 17) return 'Moderate Thinness';
+            if (bmi >= 17 && bmi < 18.5) return 'Mild Thinness';
+            if (bmi >= 18.5 && bmi < 25) return 'Normal';
+            if (bmi >= 25 && bmi < 30) return 'Overweight';
+            if (bmi >= 30 && bmi < 35) return 'Obese Class I';
+            if (bmi >= 35 && bmi < 40) return 'Obese Class II';
+            return 'Obese Class III';
+        }
+
+        function displayBMIRecords(records) {
+            const bmiList = document.getElementById('bmiList');
+            bmiList.innerHTML = '';
+
+            records.forEach(record => {
+                const bmiItem = document.createElement('div');
+                bmiItem.classList.add('bmi-item');
+                bmiItem.innerHTML = `
+                    <h3>${record.name}</h3>
+                    <p>Height: ${record.height} cm | Weight: ${record.weight} kg</p>
+                    <p>BMI: ${record.bmi}</p>
+                    <p>Recorded on: ${new Date(record.created_at).toLocaleDateString()}</p>
+                `;
+                bmiList.appendChild(bmiItem);
+            });
+        }
+    </script>
+</body>
+</html>

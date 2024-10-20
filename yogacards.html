@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga Exercises - FITDAIRY</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            padding: 2em;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 1.5em;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5em;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .card img:hover{
+           height: 400px;
+           transition-duration: .7s;
+
+
+        } 
+
+        .card-content {
+            padding: 1em;
+            text-align: center;
+        }
+
+        .card h3 {
+            margin-bottom: 0.5em;
+            color: #333;
+        }
+
+        .card p {
+            margin-bottom: 1em;
+            color: #666;
+        }
+
+        .card .btn {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 0.5em 1em;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .card .btn:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            .card-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Yoga Exercise-Videos</h1>
+    <div class="card-container">
+        <!-- Card 1 -->
+        <div class="card">
+            <img width="200"  title="1-Sirshasana_400x600" src="http://new.sivananda.org/wp-content/uploads/2019/02/1-Sirshasana_400x600-200x300.jpg" data-orig-src="http://new.sivananda.org/wp-content/uploads/2019/02/1-Sirshasana_400x600-200x300.jpg" alt="" class="img-responsive wp-image-450 lazyautosizes lazyloaded" srcset="https://sivananda.org/wp-content/uploads/2019/02/1-Sirshasana_400x600-200x300.jpg 200w, https://sivananda.org/wp-content/uploads/2019/02/1-Sirshasana_400x600.jpg 400w" data-srcset="https://sivananda.org/wp-content/uploads/2019/02/1-Sirshasana_400x600-200x300.jpg 200w, https://sivananda.org/wp-content/uploads/2019/02/1-Sirshasana_400x600.jpg 400w" data-sizes="auto" data-orig-sizes="(max-width: 640px) 100vw, 200px" sizes="200px">
+            <!-- <img src="http://new.sivananda.org/wp-content/uploads/2019/02/1-Sirshasana_400x600-200x300.jpg" alt="Yoga"> -->
+            <div class="card-content">
+                <h3>Headstand (Sirsasana)</h3>
+                <p>Known as the ‘king of the asanas’ for its remarkable benefits, the posture improves circulation, strengthens the respiratory system and heart, increases memory, concentration and intellectual capacity and promotes relaxation.</p>
+                
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <!-- <img src="https://via.placeholder.com/300x150" alt="Shoulderstand (Sarvangasana)"> -->
+            <img width="200"  title="2-sarvangasana400x600" src="http://new.sivananda.org/wp-content/uploads/2019/02/2-sarvangasana400x600-200x300.jpg" data-orig-src="http://new.sivananda.org/wp-content/uploads/2019/02/2-sarvangasana400x600-200x300.jpg" alt="" class="img-responsive wp-image-451 lazyautosizes lazyloaded" srcset="https://sivananda.org/wp-content/uploads/2019/02/2-sarvangasana400x600-200x300.jpg 200w, https://sivananda.org/wp-content/uploads/2019/02/2-sarvangasana400x600.jpg 400w" data-srcset="https://sivananda.org/wp-content/uploads/2019/02/2-sarvangasana400x600-200x300.jpg 200w, https://sivananda.org/wp-content/uploads/2019/02/2-sarvangasana400x600.jpg 400w" data-sizes="auto" data-orig-sizes="(max-width: 640px) 100vw, 200px" sizes="200px">
+            <div class="card-content">
+                <h3>Shoulderstand (Sarvangasana)</h3>
+                <p>Sarvangasana, meaning ‘all parts’ strengthens the entire body. The posture stimulates the thyroid gland regulating metabolism, protein synthesis, heart rate, blood pressure and calcium levels.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <img width="300" height="200" title="3-halasana_600x400" src="http://new.sivananda.org/wp-content/uploads/2019/02/3-halasana_600x400-300x200.jpg" data-orig-src="http://new.sivananda.org/wp-content/uploads/2019/02/3-halasana_600x400-300x200.jpg" alt="" class="img-responsive wp-image-452 lazyautosizes lazyloaded" srcset="https://sivananda.org/wp-content/uploads/2019/02/3-halasana_600x400-200x133.jpg 200w, https://sivananda.org/wp-content/uploads/2019/02/3-halasana_600x400-400x267.jpg 400w, https://sivananda.org/wp-content/uploads/2019/02/3-halasana_600x400.jpg 600w" data-srcset="https://sivananda.org/wp-content/uploads/2019/02/3-halasana_600x400-200x133.jpg 200w, https://sivananda.org/wp-content/uploads/2019/02/3-halasana_600x400-400x267.jpg 400w, https://sivananda.org/wp-content/uploads/2019/02/3-halasana_600x400.jpg 600w" data-sizes="auto" data-orig-sizes="(max-width: 640px) 100vw, 400px" sizes="284px">
+            <!-- <img src="https://via.placeholder.com/300x150" alt="Strength Training"> -->
+            <div class="card-content">
+                <h3>Plough (Halasana)
+                </h3>
+                <p>The Plough keeps the entire spine youthful by stretching the spinal muscles and opening up the spinal discs. It nourishes the spinal nerves and relieves and prevents back and neck arthritis and stiffness.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card">
+            <img width="300" height="200" title="4-Matsyasana_600x400" src="http://new.sivananda.org/wp-content/uploads/2019/02/4-Matsyasana_600x400-300x200.jpg" data-orig-src="http://new.sivananda.org/wp-content/uploads/2019/02/4-Matsyasana_600x400-300x200.jpg" alt="" class="img-responsive wp-image-453 lazyautosizes lazyloaded" srcset="https://sivananda.org/wp-content/uploads/2019/02/4-Matsyasana_600x400-200x133.jpg 200w, https://sivananda.org/wp-content/uploads/2019/02/4-Matsyasana_600x400-400x267.jpg 400w, https://sivananda.org/wp-content/uploads/2019/02/4-Matsyasana_600x400.jpg 600w" data-srcset="https://sivananda.org/wp-content/uploads/2019/02/4-Matsyasana_600x400-200x133.jpg 200w, https://sivananda.org/wp-content/uploads/2019/02/4-Matsyasana_600x400-400x267.jpg 400w, https://sivananda.org/wp-content/uploads/2019/02/4-Matsyasana_600x400.jpg 600w" data-sizes="auto" data-orig-sizes="(max-width: 640px) 100vw, 400px" sizes="284px">
+            <!-- <img src="https://via.placeholder.com/300x150" alt="Pilates"> -->
+            <div class="card-content">
+                <h3>Fish (Matsyasana)</h3>
+                <p>The Fish strengthens and cleanses the respiratory system, increasing lung capacity, relieving asthma and bringing increased vitality to the entire system.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card">
+            <img width="300" height="200" title="5-pashimothanasana_600x400" src="http://new.sivananda.org/wp-content/uploads/2019/02/5-pashimothanasana_600x400-300x200.jpg" data-orig-src="http://new.sivananda.org/wp-content/uploads/2019/02/5-pashimothanasana_600x400-300x200.jpg" alt="" class="img-responsive wp-image-454 lazyautosizes lazyloaded" srcset="https://sivananda.org/wp-content/uploads/2019/02/5-pashimothanasana_600x400-200x133.jpg 200w, https://sivananda.org/wp-content/uploads/2019/02/5-pashimothanasana_600x400-400x267.jpg 400w, https://sivananda.org/wp-content/uploads/2019/02/5-pashimothanasana_600x400.jpg 600w" data-srcset="https://sivananda.org/wp-content/uploads/2019/02/5-pashimothanasana_600x400-200x133.jpg 200w, https://sivananda.org/wp-content/uploads/2019/02/5-pashimothanasana_600x400-400x267.jpg 400w, https://sivananda.org/wp-content/uploads/2019/02/5-pashimothanasana_600x400.jpg 600w" data-sizes="auto" data-orig-sizes="(max-width: 640px) 100vw, 400px" sizes="284px">
+            <!-- <img src="https://via.placeholder.com/300x150" alt="Crossfit"> -->
+            <div class="card-content">
+                <h3>Sitting Forward Bend (Paschimottanasana)</h3>
+                <p>The Sitting Forward Bend massages, stimulates and tones the entire digestive system, regulating peristalsis and increasing digestive power. The functions of the pancreas are regulated controlling blood sugar levels and carbohydrate metabolism.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="card">
+            <img width="300" height="200" title="6-Bhujangasana_600x400" src="http://new.sivananda.org/wp-content/uploads/2019/02/6-Bhujangasana_600x400-300x200.jpg" data-orig-src="http://new.sivananda.org/wp-content/uploads/2019/02/6-Bhujangasana_600x400-300x200.jpg" alt="" class="img-responsive wp-image-455 lazyautosizes lazyloaded" srcset="https://sivananda.org/wp-content/uploads/2019/02/6-Bhujangasana_600x400-200x133.jpg 200w, https://sivananda.org/wp-content/uploads/2019/02/6-Bhujangasana_600x400-400x267.jpg 400w, https://sivananda.org/wp-content/uploads/2019/02/6-Bhujangasana_600x400.jpg 600w" data-srcset="https://sivananda.org/wp-content/uploads/2019/02/6-Bhujangasana_600x400-200x133.jpg 200w, https://sivananda.org/wp-content/uploads/2019/02/6-Bhujangasana_600x400-400x267.jpg 400w, https://sivananda.org/wp-content/uploads/2019/02/6-Bhujangasana_600x400.jpg 600w" data-sizes="auto" data-orig-sizes="(max-width: 640px) 100vw, 400px" sizes="284px">
+            <!-- <img src="https://via.placeholder.com/300x150" alt="Meditation"> -->
+            <div class="card-content">
+                <h3>Cobra (Bhujangasana)</h3>
+                <p>The Cobra increases flexibility of the spine correcting curvature. The deep and superficial muscles of the back are strengthened and massaged, invigorating the nerves and muscles of the spine and relieving arthritis of the lower back and general lower back pain. </p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="card">
+            <img width="300" height="200" title="7-shalabasana_600x400" src="http://new.sivananda.org/wp-content/uploads/2019/02/7-shalabasana_600x400-300x200.jpg" data-orig-src="http://new.sivananda.org/wp-content/uploads/2019/02/7-shalabasana_600x400-300x200.jpg" alt="" class="img-responsive wp-image-456 lazyautosizes lazyloaded" srcset="https://sivananda.org/wp-content/uploads/2019/02/7-shalabasana_600x400-200x133.jpg 200w, https://sivananda.org/wp-content/uploads/2019/02/7-shalabasana_600x400-400x267.jpg 400w, https://sivananda.org/wp-content/uploads/2019/02/7-shalabasana_600x400.jpg 600w" data-srcset="https://sivananda.org/wp-content/uploads/2019/02/7-shalabasana_600x400-200x133.jpg 200w, https://sivananda.org/wp-content/uploads/2019/02/7-shalabasana_600x400-400x267.jpg 400w, https://sivananda.org/wp-content/uploads/2019/02/7-shalabasana_600x400.jpg 600w" data-sizes="auto" data-orig-sizes="(max-width: 640px) 100vw, 400px" sizes="284px">
+            <!-- <img src="https://via.placeholder.com/300x150" alt="HIIT"> -->
+            <div class="card-content">
+                <h3> Locust (Salabhasana)</h3>
+                <p>The Locust relieves sluggish digestion, strengthens the abdominal walls, massages the pancreas, liver and kidneys and increases blood supply to the throat area.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="card">
+            <img width="300" height="200" title="8-Dhanurasana600x400" src="http://new.sivananda.org/wp-content/uploads/2019/02/8-Dhanurasana600x400-300x200.jpg" data-orig-src="http://new.sivananda.org/wp-content/uploads/2019/02/8-Dhanurasana600x400-300x200.jpg" alt="" class="img-responsive wp-image-457 lazyautosizes lazyloaded" srcset="https://sivananda.org/wp-content/uploads/2019/02/8-Dhanurasana600x400-200x133.jpg 200w, https://sivananda.org/wp-content/uploads/2019/02/8-Dhanurasana600x400-400x267.jpg 400w, https://sivananda.org/wp-content/uploads/2019/02/8-Dhanurasana600x400.jpg 600w" data-srcset="https://sivananda.org/wp-content/uploads/2019/02/8-Dhanurasana600x400-200x133.jpg 200w, https://sivananda.org/wp-content/uploads/2019/02/8-Dhanurasana600x400-400x267.jpg 400w, https://sivananda.org/wp-content/uploads/2019/02/8-Dhanurasana600x400.jpg 600w" data-sizes="auto" data-orig-sizes="(max-width: 640px) 100vw, 400px" sizes="284px">
+            <!-- <img src="https://via.placeholder.com/300x150" alt="Zumba"> -->
+            <div class="card-content">
+                <h3>Bow (Dhanurasana)</h3>
+                <p>The Bow develops flexibility of the entire spine, invigorates the digestive organs and relieves constipation, dyspepsia and gastro-intestinal disorders.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="card">
+            <img width="200" height="300" title="9-ardha matsyendrasana400x600" src="http://new.sivananda.org/wp-content/uploads/2019/02/9-ardha-matsyendrasana400x600-200x300.jpg" data-orig-src="http://new.sivananda.org/wp-content/uploads/2019/02/9-ardha-matsyendrasana400x600-200x300.jpg" alt="" class="img-responsive wp-image-458 lazyautosizes lazyloaded" srcset="https://sivananda.org/wp-content/uploads/2019/02/9-ardha-matsyendrasana400x600-200x300.jpg 200w, https://sivananda.org/wp-content/uploads/2019/02/9-ardha-matsyendrasana400x600.jpg 400w" data-srcset="https://sivananda.org/wp-content/uploads/2019/02/9-ardha-matsyendrasana400x600-200x300.jpg 200w, https://sivananda.org/wp-content/uploads/2019/02/9-ardha-matsyendrasana400x600.jpg 400w" data-sizes="auto" data-orig-sizes="(max-width: 640px) 100vw, 200px" sizes="200px">
+            <!-- <img src="https://via.placeholder.com/300x150" alt="Boxing"> -->
+            <div class="card-content">
+                <h3>Half Spinal Twist (Ardha Matsyendrasana)</h3>
+                <p>The Half Spinal Twist provides a lateral stretch that relieves lower back pain, lumbago and rheumatism of the back and hips.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Card 10 -->
+        <div class="card">
+            <img width="300" height="200" title="10-Kakasana_600x400" src="http://new.sivananda.org/wp-content/uploads/2019/02/10-Kakasana_600x400-300x200.jpg" data-orig-src="http://new.sivananda.org/wp-content/uploads/2019/02/10-Kakasana_600x400-300x200.jpg" alt="" class="img-responsive wp-image-459 lazyautosizes lazyloaded" srcset="https://sivananda.org/wp-content/uploads/2019/02/10-Kakasana_600x400-200x133.jpg 200w, https://sivananda.org/wp-content/uploads/2019/02/10-Kakasana_600x400-400x267.jpg 400w, https://sivananda.org/wp-content/uploads/2019/02/10-Kakasana_600x400.jpg 600w" data-srcset="https://sivananda.org/wp-content/uploads/2019/02/10-Kakasana_600x400-200x133.jpg 200w, https://sivananda.org/wp-content/uploads/2019/02/10-Kakasana_600x400-400x267.jpg 400w, https://sivananda.org/wp-content/uploads/2019/02/10-Kakasana_600x400.jpg 600w" data-sizes="auto" data-orig-sizes="(max-width: 640px) 100vw, 400px" sizes="284px">
+            <!-- <img src="https://via.placeholder.com/300x150" alt="Cycling"> -->
+            <div class="card-content">
+                <h3>Crow (Kakasana)</h3>
+                <p>The Crow strengthens and stretches the muscles of the arms, wrists, forearms and shoulders and increases breathing capacity. It increases the power of concentration, removes sluggishness and promotes mental and physical balance. </p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Card 11 -->
+        <div class="card">
+            <img width="200" height="300" title="11-Padha hastasana_400x600" src="http://new.sivananda.org/wp-content/uploads/2019/02/11-Padha-hastasana_400x600-200x300.jpg" data-orig-src="http://new.sivananda.org/wp-content/uploads/2019/02/11-Padha-hastasana_400x600-200x300.jpg" alt="" class="img-responsive wp-image-460 lazyautosizes lazyloaded" srcset="https://sivananda.org/wp-content/uploads/2019/02/11-Padha-hastasana_400x600-200x300.jpg 200w, https://sivananda.org/wp-content/uploads/2019/02/11-Padha-hastasana_400x600.jpg 400w" data-srcset="https://sivananda.org/wp-content/uploads/2019/02/11-Padha-hastasana_400x600-200x300.jpg 200w, https://sivananda.org/wp-content/uploads/2019/02/11-Padha-hastasana_400x600.jpg 400w" data-sizes="auto" data-orig-sizes="(max-width: 640px) 100vw, 200px" sizes="200px">
+            <!-- <img src="https://via.placeholder.com/300x150" alt="Swimming"> -->
+            <div class="card-content">
+                <h3>Standing Forward Bend (Pada Hastasana)</h3>
+                <p>The Hands to Feet Pose increases the length of the spine and spinal elasticity and tones the spinal nerves.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+
+        <!-- Card 12 -->
+        <div class="card">
+            <img width="300" height="200" title="12-Trikonasana_600x400" src="http://new.sivananda.org/wp-content/uploads/2019/02/12-Trikonasana_600x400-300x200.jpg" data-orig-src="http://new.sivananda.org/wp-content/uploads/2019/02/12-Trikonasana_600x400-300x200.jpg" alt="" class="img-responsive wp-image-461 lazyautosizes lazyloaded" srcset="https://sivananda.org/wp-content/uploads/2019/02/12-Trikonasana_600x400-200x133.jpg 200w, https://sivananda.org/wp-content/uploads/2019/02/12-Trikonasana_600x400-400x267.jpg 400w, https://sivananda.org/wp-content/uploads/2019/02/12-Trikonasana_600x400.jpg 600w" data-srcset="https://sivananda.org/wp-content/uploads/2019/02/12-Trikonasana_600x400-200x133.jpg 200w, https://sivananda.org/wp-content/uploads/2019/02/12-Trikonasana_600x400-400x267.jpg 400w, https://sivananda.org/wp-content/uploads/2019/02/12-Trikonasana_600x400.jpg 600w" data-sizes="auto" data-orig-sizes="(max-width: 640px) 100vw, 400px" sizes="284px">
+            <!-- <img src="https://via.placeholder.com/300x150" alt="Stretching"> -->
+            <div class="card-content">
+                <h3>Triangle (Trikonasana)</h3>
+                <p>The Triangle tones the spinal nerves and abdominal organs. Peristalsis of the digestive tract is increased. The pelvic area, legs and arms are strengthened, and hip flexibility promoted.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

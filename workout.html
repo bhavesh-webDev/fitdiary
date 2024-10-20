@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Workout Log - FITDAIRY</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            padding: 2em;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 1em;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 1.5em;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1em;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.7em;
+            margin-top: 0.5em;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 0.7em;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 0.5em;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+        }
+
+        .workout-list {
+            margin-top: 2em;
+        }
+
+        .workout-item {
+            background-color: #f8f9fa;
+            margin-bottom: 1em;
+            padding: 1em;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .delete-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 0.5em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .delete-btn:hover {
+            background-color: #c82333;
+        }
+
+        .summary {
+            margin-top: 2em;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Daily Workout Log</h1>
+    <div class="container">
+        <div class="form-group">
+            <label for="workoutType">Workout Type</label>
+            <select id="workoutType">
+                <option value="Running">Running</option>
+                <option value="Cycling">Cycling</option>
+                <option value="Yoga">Yoga</option>
+                <option value="Weight Training">Weight Training</option>
+                <option value="Swimming">Swimming</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="duration">Duration (minutes)</label>
+            <input type="number" id="duration" placeholder="Enter duration in minutes">
+        </div>
+
+        <div class="form-group">
+            <label for="calories">Calories Burned</label>
+            <input type="number" id="calories" placeholder="Enter calories burned">
+        </div>
+
+        <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" id="date">
+        </div>
+
+        <button class="btn" onclick="addWorkout()">Add Workout</button>
+
+        <div class="workout-list" id="workoutList"></div>
+
+        <div class="summary" id="summary">Total Workouts: 0 | Total Calories Burned: 0</div>
+    </div>
+
+    <script>
+        // Fetch workouts from the database on page load
+        window.onload = fetchWorkouts;
+
+        function fetchWorkouts() {
+            fetch('workout.php')
+                .then(response => response.json())
+                .then(data => {
+                    displayWorkouts(data);
+                    updateSummary(data);
+                })
+                .catch(error => console.error('Error fetching workouts:', error));
+        }
+
+        // Add a new workout via AJAX
+        function addWorkout() {
+            const workoutType = document.getElementById('workoutType').value;
+            const duration = document.getElementById('duration').value;
+            const calories = document.getElementById('calories').value;
+            const date = document.getElementById('date').value;
+
+            if (!workoutType || !duration || !calories || !date) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('workoutType', workoutType);
+            formData.append('duration', duration);
+            formData.append('calories', calories);
+            formData.append('date', date);
+
+            fetch('workout.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(() => fetchWorkouts())  // Reload the workouts after adding
+            .catch(error => console.error('Error adding workout:', error));
+        }
+
+        // Display workouts in the workout list
+        function displayWorkouts(workouts) {
+            const workoutList = document.getElementById('workoutList');
+            workoutList.innerHTML = '';
+
+            workouts.forEach(workout => {
+                const workoutItem = document.createElement('div');
+                workoutItem.classList.add('workout-item');
+                workoutItem.innerHTML = `
+                    <div>
+                        <h3>${workout.workout_type}</h3>
+                        <p>${workout.duration} minutes | ${workout.calories} cal</p>
+                        <p>Date: ${workout.workout_date}</p>
+                    </div>
+                `;
+                workoutList.appendChild(workoutItem);
+            });
+        }
+
+        // Update the workout summary
+        function updateSummary(workouts) {
+            const totalWorkouts = workouts.length;
+            const totalCalories = workouts.reduce((sum, workout) => sum + parseInt(workout.calories), 0);
+            document.getElementById('summary').textContent =
+                `Total Workouts: ${totalWorkouts} | Total Calories Burned: ${totalCalories}`;
+        }
+    </script>
+</body>
+</html>
